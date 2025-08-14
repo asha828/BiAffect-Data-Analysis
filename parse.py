@@ -285,8 +285,8 @@ def bundle_files(file_ids: str, chunk: int):
 
 
 if __name__ == '__main__':
-    download_dir = "/Users/ashathomas/dev/asha_synapse"  # TMPDIR is specific to the Donders HPC
-    dat_dir = "/Users/ashathomas/dev/asha_synapse_parse"
+    download_dir = TMPDIR  # TMPDIR is specific to the Donders HPC
+    dat_dir = TMPDIR
 
     # Filter files to parse
     # Not all files are zip files, make selection based on hc_df below
