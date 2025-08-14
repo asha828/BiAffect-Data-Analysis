@@ -27,15 +27,14 @@ syn = synapseclient.Synapse()
 syn.login(authToken=os.environ.get('SYNAPSE_AUTH_TOKEN')) 
 
 # Replace with path suitable to your system
-download_dir = "~/dev/asha_synapse" # TMPDIR is specific to the Donders HPC
+download_dir = "" # TMPDIR is specific to the Donders HPC
 
 # Alex's health codes
-# health_codes = [
-#     '_08nxJUKt-F_6BUhDzcStMpy', 
-#     'Why1Rx5jshJTviT4ebIi_NPU'
-# ]
-# Asha's health codes
-health_codes = ['iwOIcGNdNoTAwqwkUjEE2rdz']
+health_codes = [
+     '_08nxJUKt-F_6BUhDzcStMpy', 
+     'Why1Rx5jshJTviT4ebIi_NPU'
+]
+
 # Tabular overview of all files in 'Test Study Project ucMft' in Synapse
 view_id = 'syn64728532'
 
