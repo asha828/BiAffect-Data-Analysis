@@ -17,16 +17,13 @@
     * python3 -m pip install tqdm
     * python3 -m pip install python-dotenv
 
-8. In pull.py, add the following lines of code to the top 
-    * `from dotenv import load_dotenv`
-    * `load_dotenv()`
-9. Create env variable 
+8. Create env variable 
     * In VS code, create a new file called .env
     * Get synapse token
     * Write this in your .env file: 
     * `SYNAPSE_AUTH_TOKEN = your synapse token` 
     * `TMPDIR = "your path to a new folder that stores your keyboard data"`
-10. Create a new file called .gitignore 
+9. Create a new file called .gitignore 
     * Write this in your .gitignore file: .env 
 
 ## Downloading Data:
@@ -65,7 +62,7 @@
     * Line 19: `write_parquet(dat_kp,"your path to folder that stores your parsed data/dat_kp.parquet")`
 
     * Line 20: `write_parquet(dat_ses, "your path to folder that stores your parsed data/dat_ses.parquet")`
-5. Save this R file to your folder that conatins your forked repository (main folder) 
+5. Save this R file to your folder that contains your forked repository (main folder) 
 6. Run setwd("your path/ your main folder") in **console** on rstudio and click “Source” in top right corner of the source editor to run this line of code
 7. This will save the preprocessed data into your parsed data folder and you should now have: raw_acc.parquet, raw_kp.parquet, dat_acc.parquet, dat_ses.parquet, dat_kp.parquet inside your parsed data folder
 8. Now you will be able to use three pandas data frames: 
