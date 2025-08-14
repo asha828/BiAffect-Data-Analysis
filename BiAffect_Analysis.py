@@ -48,8 +48,9 @@ plt.show()
 # Load dat_ses.parquet Parquet file
 path = 'enter you own path to parsed data folder'
 ses = pd.read_parquet(path)
+ses_copy = ses.copy()
 # merge dat_ses.parquet and dat_kp.parquet dataframes
-tk = pd.merge(ses, df_copy)
+tk = pd.merge(ses_copy, df_copy)
 
 # create count column for number of keypresses
 tk_copy = tk.groupby(["hour_float", "Dates","upright"]).size().reset_index(name="count")
@@ -78,24 +79,27 @@ plt.tight_layout()
 plt.grid()
 plt.show()
 
-##### Daily Keypress Count Graph #####  
+##### Daily Keypress Count Graph ##### 
 
-# print(tk["totalKeyPresses"].sum())
+ses_copy["date"] = pd.to_datetime(ses_copy['date'])
 
 # computes sum of total keypresses that occurred each day
-tk_copy = tk.groupby("Dates")["totalKeyPresses"].sum().reset_index(name="count_per_day")
+ts = ses_copy.groupby("date")["totalKeyPresses"].sum().reset_index(name="count_per_day")
+
 # sort dates into chronological order
-tk_copy = tk_copy.sort_values(by="Dates")
+ts = ts.sort_values(by="date")
+
 # format date ex) July 15
-tk_copy["Dates"] = tk_copy["Dates"].dt.strftime('%B %d')
-x = tk_copy['Dates']
-y = tk_copy["count_per_day"]
+ts["date"] = ts["date"].dt.strftime('%B %d')
+
+x = ts['date']
+y = ts["count_per_day"]
 
 # plot the graph
 plt.figure(figsize=(6,6))
 plt.scatter(x,y, color="blue", label="Keypresses")
 plt.plot(x,y,linestyle="solid", marker=".",markersize = 15, markerfacecolor="white", color="blue")
-plt.xlabel("Date", fontname = "Helvetica", fontsize = 12)   
+plt.xlabel("Date", fontname = "Helvetica", fontsize = 12)  
 plt.ylabel("Keypresses", fontname = "Helvetica", fontsize = 12)
 plt.title(f"Daily Keypress Count", fontname="Helvetica", fontsize = 18)
 plt.legend()
@@ -103,5 +107,6 @@ plt.tight_layout()
 plt.grid()
 plt.xticks(rotation='vertical')
 plt.show()
+
 
 
