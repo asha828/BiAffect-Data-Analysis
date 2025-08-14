@@ -27,12 +27,11 @@ syn = synapseclient.Synapse()
 syn.login(authToken=os.environ.get('SYNAPSE_AUTH_TOKEN')) 
 
 # Replace with path suitable to your system
-download_dir = "" # TMPDIR is specific to the Donders HPC
+download_dir = "add path" # TMPDIR is specific to the Donders HPC
 
-# Alex's health codes
+#  Health codes
 health_codes = [
-     '_08nxJUKt-F_6BUhDzcStMpy', 
-     'Why1Rx5jshJTviT4ebIi_NPU'
+    "add your own health code"
 ]
 
 # Tabular overview of all files in 'Test Study Project ucMft' in Synapse
