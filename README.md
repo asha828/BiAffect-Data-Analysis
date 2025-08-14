@@ -80,7 +80,7 @@
 
 ![Keyboard Usage](Keyboard_Usage.png)
 ![Keyboard Orientation](Keyboard_Orientation.png)
-![Daily Kepresses](Daily_Keypresses.png)
+![Daily Kepresses](Daily_Keypress.png)
 
 
 
